@@ -1,15 +1,12 @@
-function [ArmLength1, ArmLength2] = UserArmLength()
+function [ArmLength] = UserArmLength()
     
-    ArmLength1 = input('Insert Arm 1 length: ');
+    ArmLength = zeros(1, 2);
+    for i = 1:2
+        ArmLength(i) = input(sprintf('Insert Arm %d length: ', i));
 
-    while ArmLength1 < 0.1 || ArmLength1 > 5
-        ArmLength1 = input('Invalid! Enter Arm 1 length between 0.1 to 5: ');
-    end
-    
-    ArmLength2 = input('Insert Arm 2 length: ');
-    
-    while ArmLength2 < 0.1 || ArmLength2 > 5
-        ArmLength2 = input('Invalid! Enter Arm 2 length between 0.1 to 5: ');
+        while ArmLength(i) < 0.1 || ArmLength(i) > 5
+            ArmLength(i) = input(sprintf('Invalid! Enter Arm %d length between 0.1 to 5: ', i));
+        end
     end
 
 end
